@@ -22,6 +22,14 @@ class Currency
     @amount != other.amount || @currency != other.currency
   end
 
+  def add(add)
+    if @currency == add.currency
+      @amount + add.amount
+    else
+      puts "DifferentCurrencyCodeError"
+    end
+  end
+
 end
 
 first = Currency.new(100.0, :USD)
@@ -42,3 +50,14 @@ fourth = Currency.new(50.0, :USD)
     puts "true = #{second.not_equal(fourth)}"
     puts "true = #{third.not_equal(fourth)}"
   puts ""
+
+# ///test 3 - Testing 'add' Method
+  puts ""
+    puts "Testing 'add' Method:"
+    puts "100 USD + 100 USD = #{first.add(second)} USD"
+    puts ""
+    puts "100 USD + 100 EUR =   USD != EUR"
+    second.add(third)
+  puts ""
+
+  
